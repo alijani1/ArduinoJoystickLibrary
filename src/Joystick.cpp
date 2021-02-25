@@ -181,7 +181,6 @@ Joystick_::Joystick_(
 
 	} // Buttons
 
-/*
 	if ((axisCount > 0) || (_hatSwitchCount > 0)) {
 	
 		// USAGE_PAGE (Generic Desktop)
@@ -189,7 +188,6 @@ Joystick_::Joystick_(
 		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x01;
 		
 	}
-*/	
 
 	if (_hatSwitchCount > 0) {
 
@@ -295,6 +293,7 @@ Joystick_::Joystick_(
 		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x09;
 		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x01;
 
+						
 		// COLLECTION (Physical)
 		tempHidReportDescriptor[hidReportDescriptorSize++] = 0xA1;
 		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x00;
@@ -334,9 +333,8 @@ Joystick_::Joystick_(
 			tempHidReportDescriptor[hidReportDescriptorSize++] = 0x09;
 			tempHidReportDescriptor[hidReportDescriptorSize++] = 0x35;
 		}
-		
 
-		// LOGICAL_MINIMUM (-32767)
+				// LOGICAL_MINIMUM (-32767)
 		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x16;
 		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x01;
 		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x80;
@@ -353,7 +351,8 @@ Joystick_::Joystick_(
 		// REPORT_COUNT (axisCount)
 		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x95;
 		tempHidReportDescriptor[hidReportDescriptorSize++] = axisCount;
-
+		
+		
 		// INPUT (Data,Var,Abs)
 		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x81;
 		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x02;

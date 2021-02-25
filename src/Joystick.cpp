@@ -120,7 +120,11 @@ Joystick_::Joystick_(
     // REPORT_ID (Default: 3)
     tempHidReportDescriptor[hidReportDescriptorSize++] = 0x85;
     tempHidReportDescriptor[hidReportDescriptorSize++] = _hidReportId;
-	
+
+    // COLLECTION (Locical)
+    tempHidReportDescriptor[hidReportDescriptorSize++] = 0xa1;
+    tempHidReportDescriptor[hidReportDescriptorSize++] = 0x02;
+
 	if (_buttonCount > 0) {
 
 		// USAGE_PAGE (Button)
@@ -152,12 +156,12 @@ Joystick_::Joystick_(
 		tempHidReportDescriptor[hidReportDescriptorSize++] = _buttonCount;
 
 		// UNIT_EXPONENT (0)
-		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x55;
-		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x00;
+//		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x55;
+//		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x00;
 
 		// UNIT (None)
-		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x65;
-		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x00;
+//		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x65;
+//		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x00;
 
 		// INPUT (Data,Var,Abs)
 		tempHidReportDescriptor[hidReportDescriptorSize++] = 0x81;
@@ -427,7 +431,10 @@ Joystick_::Joystick_(
 	
 	} // Simulation Controls
 
-    // END_COLLECTION
+    // END_COLLECTION  Locical
+    tempHidReportDescriptor[hidReportDescriptorSize++] = 0xc0;
+
+    // END_COLLECTION  Application
     tempHidReportDescriptor[hidReportDescriptorSize++] = 0xc0;
 
 	// Create a copy of the HID Report Descriptor template that is just the right size
